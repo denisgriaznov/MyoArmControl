@@ -95,7 +95,7 @@ Architecture includes few LSTM layers with dropout to avoid overfitting:
 
 ![Fitting](Images/fitting.png)
 
-### Validation loss: 0.1998 
-### Validation accuracy: 0.9070
+#### Validation loss: 0.1998 
+#### Validation accuracy: 0.9070
 
 It is a very good result for such small sample. It show us that we can recognize more gestures with more dataset and increase accuracy.
