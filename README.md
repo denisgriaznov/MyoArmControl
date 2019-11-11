@@ -25,6 +25,8 @@ For data mining from Armband Unity program was developed on base of the Unity SD
 - integrated neural network model using TensorFlowSharp and real-time gesture recognition with multithreading
 - created class with Savitzkiy-Goley filter for processing input data
 
+(Images/unity.png)
+
 Write to a file:
 - already filtering data
 - row is 90*8 values (for each sensor) and last value of gesture code
