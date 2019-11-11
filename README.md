@@ -29,8 +29,14 @@ For data mining from Armband Unity program was developed on base of the Unity SD
 
 Write to a file:
 - already filtering data
-- row is 90*8 values (for each sensor) and last value of gesture code
+- row is 720 EMG values (90 for each sensor) and last value of gesture code
 
 ## Data preprocessing
 
-For better results, the data needs preprocessing. Original EMG signal has fast large differences of values. For its approximation I chose Savitzkiy-Goley filter with 9 points of 
+For better results, the data needs preprocessing. Original EMG signal has fast large differences of values. For its approximation I chose Savitzkiy-Goley filter with 9 points of calculate moving average and 2nd polynom order.
+
+([Useful link about such filtering](http://195.134.76.37/applets/AppletSmooth/Appl_Smooth2.html))
+
+#### Comparison filters with different points count:
+![Uniy](Images/filtering.png)
+
