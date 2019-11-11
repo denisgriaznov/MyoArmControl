@@ -43,7 +43,7 @@ Write to a file:
 
 ## Data preprocessing
 
-For better results, the data needs preprocessing. Original EMG signal has fast large differences of values. For its approximation I chose Savitzkiy-Goley filter with 9 points of calculate moving average and 2nd polynom order.
+For better results, the data needs preprocessing. Original EMG signal has fast large differences of values. For its approximation I chose Savitzkiy-Goley filter with 9 points and 2nd polynom order.
 
 [Useful link about such filtering](http://195.134.76.37/applets/AppletSmooth/Appl_Smooth2.html)
 
