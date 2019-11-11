@@ -56,3 +56,7 @@ Architecture includes few LSTM layers with dropout to avoid overfitting:
 
 ([Wiki about LSTM](https://en.wikipedia.org/wiki/Long_short-term_memory))
 
+#### Graphs of loss and accuracy on 25 epochs with 0.25 validation data from our dataset:
+
+![Fitting](Images/fitting.png)
+
