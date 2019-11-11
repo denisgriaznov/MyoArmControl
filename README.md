@@ -8,6 +8,14 @@ Student work in Technical University of Liberec (TUL).
 - move this model on remote device (such Arduino board) or  coumuter native program
 - exercise control
 
+## Review
+([Data mining](https://github.com/denisgriaznov/MyoArmControl#data-mining))
+([Data preprocessing](https://github.com/denisgriaznov/MyoArmControl#data-preprocessing))
+([Data analysis](https://github.com/denisgriaznov/MyoArmControl#data-analysis))
+([Data mining](https://github.com/denisgriaznov/MyoArmControl#data-mining))
+
+
+
 ## Requirements 
 Python: 3.6
 - tensorflow==1.4.0
@@ -42,7 +50,7 @@ For better results, the data needs preprocessing. Original EMG signal has fast l
 #### Comparison filters with different points count:
 ![Uniy](Images/filtering.png)
 
-## Data analyzis
+## Data analysis
 
 For first example small dataset with 3 different gestures was recorded (about 60 elements for each class)
 
