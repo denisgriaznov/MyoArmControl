@@ -31,6 +31,8 @@ Write to a file:
 - already filtering data
 - row is 720 EMG values (90 for each sensor) and last value of gesture code
 
+([MyoArmband SDK](https://support.getmyo.com/hc/en-us/articles/360018409792-Myo-Connect-SDK-and-firmware-downloads))
+
 ## Data preprocessing
 
 For better results, the data needs preprocessing. Original EMG signal has fast large differences of values. For its approximation I chose Savitzkiy-Goley filter with 9 points of calculate moving average and 2nd polynom order.
@@ -43,6 +45,11 @@ For better results, the data needs preprocessing. Original EMG signal has fast l
 ## Data analyzis
 
 For first example small dataset with 3 different gestures was recorded (about 60 elements for each class)
+
+#### Classes:
+- Fist
+- Palm
+- Relax
 
 Correlation matrix was calculated in 2 variations:
 - all features with all (720*720)
