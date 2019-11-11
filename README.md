@@ -18,7 +18,7 @@ Unity: 2019.2.10f
 
 ## Data mining
 
-For data mining from Armband Unity program was developed on base of the Unity SDK example from MyoArmband developers:
+Unity program was developed on base of the Unity SDK example from MyoArmband developers:
 
 - added the ability to recieve EMG data and vizualize it in graph
 - button for writing data to a file with current gesture chose (added as last element of a row)
@@ -39,4 +39,20 @@ For better results, the data needs preprocessing. Original EMG signal has fast l
 
 #### Comparison filters with different points count:
 ![Uniy](Images/filtering.png)
+
+## Create and fitting model
+
+Recurent neural network model was choised as more effective in time series and human action recognition.
+Architecture includes few LSTM layers with dropout to avoid overfitting:
+
+- Input layer 8*90
+- LSTM layer with 50 units and 0,2 dropout
+- LSTM layer with 50 units and 0,2 dropout
+- LSTM layer with 50 units and 0,2 dropout
+- LSTM layer with 50 units and 0,2 dropout
+- Ordinary layer with 64 units
+- Ordinary layer with 128 units
+- Output layer with 3 options
+
+([Wiki about LSTM](https://en.wikipedia.org/wiki/Long_short-term_memory))
 
