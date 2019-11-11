@@ -50,7 +50,15 @@ Correlation matrix was calculated in 2 variations:
 
 ![Fitting](Images/correlation.png)
 
+No strong correlation between features so we shouldn't reduce dimension
 
+Correlation effect increase near corners because those sensors are close to each other (it is cycle)
+
+Next, see at distribution of values in each sensor for all classes
+
+For example graphs of distribution of 4 and 8 sensors (other have similar ones)
+
+![Fitting](Images/correlation.png)
 ## Create and fitting model
 
 Recurent neural network model was choised as more effective in time series and human action recognition.
