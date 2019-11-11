@@ -58,7 +58,7 @@ Next, see at distribution of values in each sensor for all classes
 
 For example graphs of distribution of 4 and 8 sensors (other have similar ones)
 
-![Fitting](Images/correlation.png)
+![Fitting](Images/dist.png)
 ## Create and fitting model
 
 Recurent neural network model was choised as more effective in time series and human action recognition.
