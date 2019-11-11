@@ -9,10 +9,10 @@ Student work in Technical University of Liberec (TUL).
 - exercise control
 
 ## Review
-([Data mining](https://github.com/denisgriaznov/MyoArmControl#data-mining))
-([Data preprocessing](https://github.com/denisgriaznov/MyoArmControl#data-preprocessing))
-([Data analysis](https://github.com/denisgriaznov/MyoArmControl#data-analysis))
-([Data mining](https://github.com/denisgriaznov/MyoArmControl#data-mining))
+- [Data mining](https://github.com/denisgriaznov/MyoArmControl#data-mining)
+- [Data preprocessing](https://github.com/denisgriaznov/MyoArmControl#data-preprocessing)
+- [Data analysis](https://github.com/denisgriaznov/MyoArmControl#data-analysis)
+- [Create and fitting model](https://github.com/denisgriaznov/MyoArmControl#create-and-fitting-model)
 
 
 
