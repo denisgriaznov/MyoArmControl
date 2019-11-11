@@ -8,7 +8,7 @@ Student work in Technical University of Liberec (TUL).
 - move this model on remote device (such Arduino board) or  coumuter native program
 - exercise control
 
-## Requirements (for now)
+## Requirements 
 Python: 3.6
 - tensorflow==1.4.0
 - keras==2.1.3
@@ -22,7 +22,12 @@ For data mining from Armband Unity program was developed on base of the Unity SD
 
 - added the ability to recieve EMG data and vizualize it in graph
 - button for writing data to a file with current gesture chose (added as last element of a row)
-- integrated neural network model using TensorFlowSharp
+- integrated neural network model using TensorFlowSharp and real-time gesture recognition with multithreading
+- created class with Savitzkiy-Goley filter for processing input data
+
+Write to a file:
+- already filtering data
+- row is 90*8 values (for each sensor) and last value of gesture code
 
 ## Data preprocessing
 
