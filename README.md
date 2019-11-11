@@ -1,6 +1,6 @@
 # MyoArmControl
 Research of mechanical control via myoelectrical signals using Myo Armband. 
-Student work in Technical University of Liberec (TUL).
+Student work in Technical University of Liberec 
 
 ## Targets
 - find optimal EMG signal filtering method (in accuracy and computational cost)
