@@ -1,5 +1,6 @@
 # MyoArmControl
 Research of mechanical control via myoelectrical signals using Myo Armband. 
+
 Student work in Technical University of Liberec 
 
 ## Targets
