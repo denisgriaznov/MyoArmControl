@@ -14,8 +14,15 @@ Python: 3.6
 - keras==2.1.3
 
 Unity: 2019.2.10f
+- TensorFlow-Sharp ([Download here](https://s3.amazonaws.com/unity-ml-agents/0.5/TFSharpPlugin.unitypackage))
 
+## Data mining
 
+For data mining from Armband Unity program was developed on base of the Unity SDK example from MyoArmband developers:
+
+- added the ability to recieve EMG data and vizualize it in graph
+- button for writing data to a file with current gesture chose (added as last element of a row)
+- integrated neural network model using TensorFlowSharp
 
 ## Data preprocessing
 
