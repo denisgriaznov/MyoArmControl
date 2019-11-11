@@ -40,6 +40,17 @@ For better results, the data needs preprocessing. Original EMG signal has fast l
 #### Comparison filters with different points count:
 ![Uniy](Images/filtering.png)
 
+## Data analyzis
+
+For first example small dataset with 3 different gestures was recorded (about 60 elements for each class)
+
+Correlation matrix was calculated in 2 variations:
+- all features with all (720*720)
+- all sensors curves with all(8*8)
+
+![Fitting](Images/correlation.png)
+
+
 ## Create and fitting model
 
 Recurent neural network model was choised as more effective in time series and human action recognition.
@@ -60,3 +71,4 @@ Architecture includes few LSTM layers with dropout to avoid overfitting:
 
 ![Fitting](Images/fitting.png)
 
+It is a very good result for such small sample. It show us that we can recognize more gestures with more dataset and increase accuracy.
