@@ -70,7 +70,8 @@ namespace Thalmic.Myo
             }
             for (int i = 0; i < filteredData.Length; i++)
             {
-                filteredData[i] = sgf.filtering(myo.GetEmg()[i]);
+                //filteredData[i] = sgf.filtering(myo.GetEmg()[i]);
+                filteredData[i] = myo.GetEmg()[i];
 
             }
             ShowGraph(filteredData[1]);
@@ -107,7 +108,7 @@ namespace Thalmic.Myo
 
         public void writeNewFile()
         {
-            int[] features = new int[filteredData[0].Count  * 8 + 1];
+            int[] features = new int[100  * 8 + 1];
             for(int i = 0; i < features.Length; i++)
             {
                 features[i] = i;
