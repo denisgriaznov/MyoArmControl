@@ -50,7 +50,7 @@ namespace Thalmic.Myo
 
         public int[] emgData = new int[7];
 
-        public List<int>[] dataMyo = new List<int>[8];
+        public List<float>[] dataMyo = new List<float>[8];
         
 
         internal Hub Hub
@@ -76,7 +76,7 @@ namespace Thalmic.Myo
         public Result SetStreamEmg(StreamEmg type)
         {
             for (int i = 0; i < 8; i++) {
-                dataMyo[i] = new List<int>();
+                dataMyo[i] = new List<float>();
             }
             streamEmg = true;
             return (Result) libmyo.set_stream_emg(_handle, (libmyo.StreamEmg)type, IntPtr.Zero);

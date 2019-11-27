@@ -1,0 +1,5 @@
+sceneSetups:
+- path: Assets/Myo Samples/MyoScene.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0

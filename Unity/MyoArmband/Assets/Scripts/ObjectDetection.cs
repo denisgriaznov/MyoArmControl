@@ -32,12 +32,10 @@ namespace Thalmic.Myo
         bool dataUpdated = false;
         bool processingMyo = true;
 
-        public GameObject graphObj = null;
-        private Window_Graph myo;
+        public GraphVizualizer myo;
 
         // Use this for initialization
         IEnumerator Start() {
-            myo = graphObj.GetComponent<Window_Graph>();
 
             #if UNITY_ANDROID
                             TensorFlowSharp.Android.NativeBinding.Init();
@@ -101,7 +99,7 @@ namespace Thalmic.Myo
         }
 
         IEnumerator ProcessImage() {
-            List<int>[] filteredData = myo.filteredData;
+            List<float>[] filteredData = myo.filteredData;
             for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < INPUT_SIZE; j++)

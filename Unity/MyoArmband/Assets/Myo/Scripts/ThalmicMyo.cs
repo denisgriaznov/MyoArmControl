@@ -77,7 +77,7 @@ public class ThalmicMyo : MonoBehaviour {
         }
     }
 
-    public System.Collections.Generic.List<int>[] GetEmg()
+    public System.Collections.Generic.List<float>[] GetEmg()
     {
         return(_myo.dataMyo);
     }

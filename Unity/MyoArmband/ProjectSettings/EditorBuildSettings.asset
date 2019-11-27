@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Myo Samples/MyoScene.unity
+    guid: c8943d931d65900439dafabe02129eaa
   m_configObjects: {}
