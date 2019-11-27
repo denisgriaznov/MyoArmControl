@@ -12,8 +12,8 @@ Student work in Technical University of Liberec
 ## Review
 - [Data mining](https://github.com/denisgriaznov/MyoArmControl#data-mining)
 - [Data preprocessing](https://github.com/denisgriaznov/MyoArmControl#data-preprocessing)
-- [Data analysis](https://github.com/denisgriaznov/MyoArmControl#data-analysis)
-- [Create and fitting model](https://github.com/denisgriaznov/MyoArmControl#create-and-fitting-model)
+- [Data analysis](https://github.com/denisgriaznov/MyoArmControl/tree/master/Python/Fitting#data-analysis)
+- [Create and fitting model](https://github.com/denisgriaznov/MyoArmControl/tree/master/Python/Fitting#create-and-fitting-model)
 
 
 
