@@ -34,7 +34,7 @@ Unity program was developed on base of the Unity SDK example from MyoArmband dev
 - integrated neural network model using TensorFlowSharp and real-time gesture recognition with multithreading
 - created class with Savitzkiy-Goley filter for processing input data
 
-![Uniy](Images/unity.png)
+![Uniy](../../Images/unity.png)
 
 Write to a file:
 - already filtering data
