@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 using System.Linq;
 using TensorFlow;
@@ -11,9 +12,10 @@ namespace Thalmic.Myo
 {
     public class ObjectDetection : MonoBehaviour {
 
+        public ModeManager modeManager;
         [Header("Constants")]
 
-        private const int INPUT_SIZE = 90;
+        private const int INPUT_SIZE = 140;
 
 
         [Header("Inspector Stuff")]
@@ -34,6 +36,11 @@ namespace Thalmic.Myo
 
         public GraphVizualizer myo;
 
+        public JointOrientation jointOrientation;
+
+        public int detectedPose = 0;
+
+        public Image[] images;
         // Use this for initialization
         IEnumerator Start() {
 
@@ -55,8 +62,8 @@ namespace Thalmic.Myo
             Debug.Log("Graph Loaded!!!");
 
             // Begin our heavy work on a new thread.
-            _thread = new Thread(ThreadedWork);
-            _thread.Start();
+            //_thread = new Thread(ThreadedWork);
+            //_thread.Start();
             //do this to avoid warnings
             processingMyo = true;
             yield return new WaitForEndOfFrame();
@@ -66,39 +73,76 @@ namespace Thalmic.Myo
         void ThreadedWork() {
             while (true) {
                 if (dataUpdated) {
-                    predict(input);
+                   
                 }
             }
         }
 
-        public void predict(float[] input)
+        public void predict(float[] input,float force)
+        {
+            StartCoroutine(Prediction(input,force));
+        }
+
+        IEnumerator Prediction(float[] input, float force)
         {
             TFShape shape = new TFShape(1, 8, INPUT_SIZE);
             var tensor = TFTensor.FromBuffer(shape, input, 0, input.Length);
             var runner = session.GetRunner();
-            runner.AddInput(graph["lstm_21_input_4"][0], tensor);
-            runner.Fetch(graph["dense_18_4/Softmax"][0]);
+            runner.AddInput(graph["lstm_41_input_1"][0], tensor);
+            runner.Fetch(graph["dense_33_1/Softmax"][0]);
             output = runner.Run();
             float[,] res = output[0].GetValue() as float[,];
             result[0] = res[0, 0];
             result[1] = res[0, 1];
             result[2] = res[0, 2];
-            if (res[0, 0] > 0.9f)
+            result[3] = res[0, 3];
+            result[4] = res[0, 4];
+
+            float max = result.Max();
+
+            // Positioning max
+            detectedPose = Array.IndexOf(result, max);
+
+            if (modeManager.current == 0)
             {
-                Pose = "Fist";
-                Thread.Sleep(1000);
+                switch (detectedPose)
+                {
+                    case 2:
+                        jointOrientation.grab();
+                        break;
+                    case 1:
+                        jointOrientation.left(force);
+                        break;
+                    case 0:
+                        jointOrientation.right(force);
+                        break;
+                    case 3:
+                        jointOrientation.idle();
+                        break;
+                    default:
+                        Console.WriteLine("Default case");
+                        break;
+                }
             }
-            if (res[0, 1] > 0.9f) 
+            if (modeManager.current == 2)
             {
-                Pose = "Glave";
-                Thread.Sleep(1000);
+                for (int i = 0; i < images.Length; i++)
+                {
+                    var clr = images[i].color;
+                    clr.a = 0.3f;
+                    images[i].color = clr;
+                }
+                var tempColor = images[detectedPose].color;
+                tempColor.a = 1f;
+                images[detectedPose].color = tempColor;
+                yield return new WaitForSeconds(1);
+                tempColor.a = 0.3f;
             }
-            if (res[0, 2] > 0.7f) Pose = "No Action";
-            
             dataUpdated = false;
+            yield return new WaitForEndOfFrame();
         }
 
-        IEnumerator ProcessImage() {
+            IEnumerator ProcessImage() {
             List<float>[] filteredData = myo.filteredData;
             for (int i = 0; i < 8; i++)
             {

@@ -1,20 +1,26 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - Box
     - CodeMonkey.Assets
-    - ColorBoxByPose
+    - Controller
+    - DataProcessing
     - JointOrientation
-    - SampleSceneGUI
-    - SavitzkyGolayFilter
+    - ModeManager
+    - Thalmic.Myo.Calibrate
+    - Thalmic.Myo.GraphVizualizer
     - Thalmic.Myo.ObjectDetection
-    - Thalmic.Myo.Window_Graph
+    - Thalmic.Myo.Recorder
     - ThalmicHub
     - ThalmicMyo
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateEditor
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -26,7 +32,9 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.InputField
     - UnityEngine.UI.Text
+    - UnityEngine.UI.Toggle
   sceneClasses:
     Assets/Myo Samples/MyoScene.unity:
     - Class: 1
@@ -49,9 +57,21 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
     - Class: 92
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -62,38 +82,50 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9712}
     - Class: 114
-      Script: {instanceID: 9790}
-    - Class: 114
       Script: {instanceID: 9842}
     - Class: 114
-      Script: {instanceID: 9882}
+      Script: {instanceID: 9876}
     - Class: 114
-      Script: {instanceID: 9950}
+      Script: {instanceID: 9884}
     - Class: 114
-      Script: {instanceID: 10016}
+      Script: {instanceID: 10272}
     - Class: 114
-      Script: {instanceID: 10274}
+      Script: {instanceID: 10352}
     - Class: 114
-      Script: {instanceID: 10544}
+      Script: {instanceID: 10424}
     - Class: 114
-      Script: {instanceID: 10628}
+      Script: {instanceID: 10546}
     - Class: 114
-      Script: {instanceID: 10674}
+      Script: {instanceID: 10602}
     - Class: 114
-      Script: {instanceID: 10866}
+      Script: {instanceID: 10632}
     - Class: 114
-      Script: {instanceID: 11090}
+      Script: {instanceID: 10678}
     - Class: 114
-      Script: {instanceID: 11440}
+      Script: {instanceID: 10816}
     - Class: 114
-      Script: {instanceID: 11442}
+      Script: {instanceID: 10870}
     - Class: 114
-      Script: {instanceID: 11456}
+      Script: {instanceID: 11054}
+    - Class: 114
+      Script: {instanceID: 11096}
+    - Class: 114
+      Script: {instanceID: 11362}
+    - Class: 114
+      Script: {instanceID: 11370}
+    - Class: 114
+      Script: {instanceID: 11450}
+    - Class: 114
+      Script: {instanceID: 11466}
+    - Class: 114
+      Script: {instanceID: 11470}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
       Script: {instanceID: 0}
     - Class: 128
+      Script: {instanceID: 0}
+    - Class: 136
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -120,7 +152,7 @@ ScriptsOnlyBuild:
     className: TMP_SelectionCaret
   - hash:
       serializedVersion: 2
-      Hash: 03506a22bbb40525d648be80307e81e1
+      Hash: 3576685e1fbf4595c75ded904817c5bf
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: JointOrientation
@@ -186,6 +218,12 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
+      Hash: 290d04b8b36538998d7f5c6413ee0fc9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: Thalmic.Myo
+    className: Recorder
+  - hash:
+      serializedVersion: 2
       Hash: 8e0313c6f5e2ce35991fec2d64f8eaab
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -216,12 +254,6 @@ ScriptsOnlyBuild:
     className: GridLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SavitzkyGolayFilter
-  - hash:
-      serializedVersion: 2
       Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -244,12 +276,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: PhysicsRaycaster
-  - hash:
-      serializedVersion: 2
-      Hash: 816c9f05fd9b621ec6c1b021c7013c55
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: Thalmic.Myo
-    className: Window_Graph
   - hash:
       serializedVersion: 2
       Hash: bd3cf68c8964d3c66d1c43f4f98508c9
@@ -330,10 +356,22 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DataProcessing
+  - hash:
+      serializedVersion: 2
       Hash: b3ab2106268377ffe25dd18ac23dca28
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_Asset
+  - hash:
+      serializedVersion: 2
+      Hash: a442b1bfec6fb4866e2f902304e6c3ab
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Box
   - hash:
       serializedVersion: 2
       Hash: d4020bafcd3ccbb5601a6e6c8ac78be0
@@ -360,7 +398,7 @@ ScriptsOnlyBuild:
     className: CameraFollowSetup
   - hash:
       serializedVersion: 2
-      Hash: ee938cd34acdeca076fb65e791c79ec7
+      Hash: 2581629c1316d62c02b8c27ba7b30a1d
     assemblyName: Assembly-CSharp.dll
     namespaceName: Thalmic.Myo
     className: ObjectDetection
@@ -370,6 +408,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: RemoteTestResultSender
+  - hash:
+      serializedVersion: 2
+      Hash: 19863e074fbd1b914ef0f49818bad652
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Controller
   - hash:
       serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
@@ -474,6 +518,12 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
+      Hash: fd12108e9e9a3d8f28d97ac242ab1d1f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ModeManager
+  - hash:
+      serializedVersion: 2
       Hash: f336e086360abe49a3323e5f1583c35a
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -520,6 +570,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_ColorGradient
+  - hash:
+      serializedVersion: 2
+      Hash: ea25d4c57f7e5b1bec3489b0bfdc7c9d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: Thalmic.Myo
+    className: GraphVizualizer
+  - hash:
+      serializedVersion: 2
+      Hash: 1f997c2fb7eea288289d9dd1c50f3397
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: Thalmic.Myo
+    className: Calibrate
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -600,12 +662,6 @@ ScriptsOnlyBuild:
     className: SignalEmitter
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: WindowGraph
-  - hash:
-      serializedVersion: 2
       Hash: 7072231382eb3c4871b3dd75ad0227e1
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -625,4 +681,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Myo Samples/MyoScene.unity
-  playerPath: C:/Users/Denis/Desktop/MyoArmControl/MyoArmControl/Unity/MyoArmband.exe
+  playerPath: C:/Users/Denis/Desktop/MyoArmControl/MyoArmControl/Unity/MyoArmband/Build/MyoArmband.exe

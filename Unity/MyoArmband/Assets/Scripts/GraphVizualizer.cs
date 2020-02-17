@@ -12,7 +12,8 @@ namespace Thalmic.Myo
 
     public class GraphVizualizer : MonoBehaviour
     {
-
+        public int calibrationShift = 0;
+        public float calibrationForce = 0;
         public GameObject myoObj = null;
         private ThalmicMyo myo;
         [SerializeField] private Sprite circleSprite;
@@ -21,22 +22,29 @@ namespace Thalmic.Myo
         public RectTransform derivativeContainer;
         private Transform container;
         public DataProcessing dp;
-
-        public int pose = 0;
-        public Text poseText;
+        public Recorder recorder;
+        
+        
         public Text gestureForce;
         public List<float>[] filteredData = new List<float>[8];
         public List<float> average = new List<float>();
         public List<float> derivative = new List<float>();
 
         public bool isFiltering = true;
-        private bool isNormalization = true;
+        public bool isNormalization = true;
         private List<float>[] originData = new List<float>[8];
 
         public float treshold = 70f;
         public float force = 0;
         public bool waitGesture = true;
-        public int N = 100;
+        public static int N = 140;
+        float mean = 0;
+
+        public bool autorecord = false;
+        public ObjectDetection objectDetection;
+        public bool detecting;
+
+        public JointOrientation jointOrientation;
 
         private void Awake()
         {
@@ -44,6 +52,7 @@ namespace Thalmic.Myo
 
             for(int i = 0; i < N; i++)
             {
+                
                 average.Add(0);
                 derivative.Add(0);
             }
@@ -56,6 +65,7 @@ namespace Thalmic.Myo
         {
             // Begin our heavy work in a coroutine.
             StartCoroutine(YieldingWork());
+            StartCoroutine(Detecting());
         }
 
         public void ChangeFiltering()
@@ -73,6 +83,11 @@ namespace Thalmic.Myo
             waitGesture = !waitGesture;
         }
 
+        public void ChangeRecord()
+        {
+            autorecord = !autorecord;
+        }
+
         IEnumerator YieldingWork()
         {
             bool workDone = false;
@@ -86,49 +101,99 @@ namespace Thalmic.Myo
             }
         }
 
+        public void onTresholdChange(string trshString)
+        {
+            Debug.Log(trshString);
+            if (!float.TryParse(trshString, out treshold))
+            {
+                treshold = 100;
+            }
+
+        }
+
         private void Update()
 
         {
-            float mean = 0;
+            mean = 0;
            
-            poseText.text = "Pose:" + pose.ToString();
+            //poseText.text = "Pose:" + pose.ToString();
             gestureForce.text = "Force:" + force.ToString();
 
             for (int i = 0; i < filteredData.Length; i++)
             { 
-                originData[i]  = myo.GetEmg()[i];
-
-                if (isFiltering)
+                originData[(i + calibrationShift) % 8] = myo.GetEmg()[i];
+            }
+            for (int i = 0; i < filteredData.Length; i++)
                 {
-                    filteredData[i] = dp.mov_av(myo.GetEmg()[i], 5);
-                    mean = mean + dp.getMean(filteredData[i]);
+                    if (isFiltering)
+                {
+                    filteredData[i] = dp.mov_av(originData[i], 5);
+                    mean = mean + dp.getMean(filteredData[i],30);
                 }
                 else
                 {
-                    filteredData[i] = myo.GetEmg()[i];
-                    mean = mean + dp.getMean(dp.mov_av(filteredData[i],5));
+                    filteredData[i] = originData[i];
+                    mean = mean + dp.getMean(dp.mov_av(filteredData[i],5),30);
                 }
 
             }
+            Debug.Log(originData[1].Count);
             average.Add(mean);
             derivative.Add(average[N-1]- average[N - 2]);
             average.RemoveAt(0);
             derivative.RemoveAt(0);
 
-            if ((mean > treshold) && (derivative[N - 1] < 0) && (derivative[N - 2] > 0))
-            {
-                waitGesture = false;
-                force = mean - treshold;
-            } 
             
-            if (waitGesture)
-            {
-                ShowGraph(filteredData[1], graphContainer, 100f, Color.green);
-                ShowGraph(average, averageContainer, 230f, Color.blue);
-                ShowGraph(derivative, derivativeContainer, 130f, Color.red);
-                force = 0;
-            }
 
+        }
+
+        IEnumerator Detecting()
+        {
+            while(true)
+            {
+                if ((average[N-2] > treshold) && (average[N - 2] > average[N - 1]))
+                {
+                    waitGesture = false;
+                    force = average[N - 2] - treshold;
+
+                    if (detecting)
+                    {
+                        List<float> result = new List<float>();
+                        for (int i = 0; i < filteredData.Length; i++)
+                        {
+                            result = result.Concat(filteredData[i]).ToList();
+                        }
+                        result = dp.stand(result);
+                        float[] input = result.ToArray();
+                        objectDetection.predict(input, force );
+                    }
+
+                    if (autorecord)
+                    {
+                        recorder.writeCsv();
+                    }
+                    
+                    yield return new WaitForSeconds(0.8f);
+                    waitGesture = true;
+                }
+
+                if (waitGesture)
+                {
+                    Debug.Log("wait");
+                    try
+                    { 
+                        ShowGraph(filteredData[1], graphContainer, 100f, Color.green);
+                        ShowGraph(average, averageContainer, 230f, Color.blue);
+                        ShowGraph(derivative, derivativeContainer, 130f, Color.red);
+                        force = 0;
+                    }
+                    catch
+                    {
+
+                    }
+                }
+                yield return null;
+            }
         }
 
         private GameObject CreateCircle(Vector2 anchoredPosition, RectTransform graphContainer)
@@ -154,7 +219,7 @@ namespace Thalmic.Myo
 
             float graphHeight = graphContainer.sizeDelta.y;
             
-            float xSize = 1f;
+            float xSize = 0.7f;
 
             GameObject lastCircleGameObject = null;
             for (int i = 0; i < valueList.Count; i++)
@@ -170,61 +235,7 @@ namespace Thalmic.Myo
             }
         }
 
-        public void writeNewFile()
-        {
-            int[] features = new int[100 * 8 + 1];
-            for (int i = 0; i < features.Length; i++)
-            {
-                features[i] = i;
-            }
-            try
-            {
-                string path = "Assets/Resources/test.txt";
-                StreamWriter writer = new StreamWriter(path, true);
-
-                writer.WriteLine(string.Join(",", features));
-
-                writer.Close();
-
-            }
-            catch (Exception ex)
-            {
-                throw new ApplicationException("Dont work", ex);
-            }
-        }
-        public void writeCsv()
-        {
-
-            try
-            {
-                
-
-                List<float> result = new List<float>();
-                for (int i = 0; i < filteredData.Length; i++)
-                {
-                    result = result.Concat(filteredData[i]).ToList();
-                }
-                Debug.Log(result.Count);
-                string path = "Assets/Resources/test.txt";
-                //Write some text to the test.txt file
-                StreamWriter writer = new StreamWriter(path, true);
-                string newRow = "";
-
-                if (isNormalization) result = dp.stand(result);
-               
-                newRow = newRow + string.Join(",", result) + ",";
-                
-                newRow = newRow + pose;
-                writer.WriteLine(newRow);
-
-                writer.Close();
-                //UnityEngine.Debug.Log(("st:"+string.Join(",", record)));
-            }
-            catch (Exception ex)
-            {
-                throw new ApplicationException("Dont work", ex);
-            }
-        }
+        
 
         private void CreateDotConnection(Vector2 dotPositionA, Vector2 dotPositionB, RectTransform graphContainer,Color color)
         {

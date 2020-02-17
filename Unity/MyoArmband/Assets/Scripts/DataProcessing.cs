@@ -76,11 +76,11 @@ public class DataProcessing : MonoBehaviour
         return (output);
     }
 
-    public float getMean(List<float> input)
+    public float getMean(List<float> input,int start)
     {
         float mean = 0;
         int cnt = input.Count;
-        for (int i = 0; i < cnt; i++)
+        for (int i = start; i < cnt; i++)
         {
             mean = mean + input[i];
         }
@@ -103,7 +103,7 @@ public class DataProcessing : MonoBehaviour
     public List<float> stand(List<float> input)
     {   
         int cnt = input.Count;
-        float mean = getMean(input);
+        float mean = getMean(input,0);
         float sigma = getSigma(input);
         List<float> output = new List<float>();
 
@@ -114,5 +114,57 @@ public class DataProcessing : MonoBehaviour
         }
 
         return (output);
+    }
+
+    public float getMax(float[] f)
+    {
+        float max = 0;
+        for(int i = 0; i < f.Length; i++)
+        {
+            if (f[i] > max) max = f[i];
+        }
+
+        return max;
+    }
+
+    public float correlation(float[] basepose, float[] newpose)
+    {
+        
+        float corr = 0;
+        for (int i = 0; i < basepose.Length; i++)
+        {
+            corr = corr + (basepose[i] - newpose[i]) * (basepose[i] - newpose[i]);
+        }
+
+        return corr;
+    }
+
+    public float[] shiftArray(float[] f,int shift)
+    {
+        float[] newarray = new float[f.Length];
+        for (int i = 0; i < f.Length; i++)
+        {
+            newarray[(i+shift) % 8] = f[i];
+        }
+        return newarray;
+    }
+    public int getShift(float[] basepose, float[] newpose)
+    {
+
+        float corr = 100000;
+        int idx = 0;
+        for (int i = 0; i < basepose.Length; i++)
+        {
+           
+            float current = correlation(basepose,shiftArray(newpose, i));
+            if (current < corr)
+            {
+                idx = i;
+                corr = current;
+            }
+
+        }
+
+        return idx;
     }
 }

@@ -69,6 +69,8 @@ public class ThalmicMyo : MonoBehaviour {
         _myo.NotifyUserAction ();
     }
 
+    
+
 
 
     void Start() {
@@ -81,6 +83,8 @@ public class ThalmicMyo : MonoBehaviour {
     {
         return(_myo.dataMyo);
     }
+  
+
 
     void Update() {
         lock (_lock) {

@@ -82,6 +82,7 @@
     <Compile Include="Assets\GraphUtils\Utils\World_Bar.cs" />
     <Compile Include="Assets\GraphUtils\Utils\World_Mesh.cs" />
     <Compile Include="Assets\GraphUtils\Utils\World_Sprite.cs" />
+    <Compile Include="Assets\Myo Samples\Properties\AssemblyInfo.cs" />
     <Compile Include="Assets\Myo Samples\Scripts\ColorBoxByPose.cs" />
     <Compile Include="Assets\Myo Samples\Scripts\JointOrientation.cs" />
     <Compile Include="Assets\Myo Samples\Scripts\SampleSceneGUI.cs" />
@@ -90,23 +91,27 @@
     <Compile Include="Assets\Myo\Scripts\Myo.NET\libmyo.cs" />
     <Compile Include="Assets\Myo\Scripts\Myo.NET\Myo.cs" />
     <Compile Include="Assets\Myo\Scripts\Myo.NET\Pose.cs" />
-    <Compile Include="Assets\Myo\Scripts\Myo.NET\Properties\AssemblyInfo.cs" />
     <Compile Include="Assets\Myo\Scripts\Myo.NET\Quaternion.cs" />
     <Compile Include="Assets\Myo\Scripts\Myo.NET\Vector3.cs" />
     <Compile Include="Assets\Myo\Scripts\ThalmicHub.cs" />
     <Compile Include="Assets\Myo\Scripts\ThalmicMyo.cs" />
+    <Compile Include="Assets\Scripts\Calibrate.cs" />
     <Compile Include="Assets\Scripts\CameraImage.cs" />
     <Compile Include="Assets\Scripts\CatalogItem.cs" />
     <Compile Include="Assets\Scripts\CatalogUtil.cs" />
+    <Compile Include="Assets\Scripts\Control\Box.cs" />
+    <Compile Include="Assets\Scripts\Control\Controller.cs" />
     <Compile Include="Assets\Scripts\DataProcessing.cs" />
     <Compile Include="Assets\Scripts\GraphVizualizer.cs" />
     <Compile Include="Assets\Scripts\ModeManager.cs" />
     <Compile Include="Assets\Scripts\ObjectDetection.cs" />
+    <Compile Include="Assets\Scripts\Recorder.cs" />
     <Compile Include="Assets\Scripts\TextureTools.cs" />
     <None Include="Assets\GraphUtils\README.txt" />
     <None Include="Assets\Resources\test2.txt" />
     <None Include="Assets\Myo\Scripts\Myo.NET\data.txt" />
     <None Include="Assets\Myo\README-MyoUnity.txt" />
+    <None Include="Assets\Resources\new.txt" />
     <None Include="Assets\Resources\test.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Denis/Desktop/MyoArmControl/MyoArmControl/Unity/MyoArmband/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

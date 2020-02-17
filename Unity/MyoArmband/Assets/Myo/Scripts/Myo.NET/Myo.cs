@@ -51,7 +51,9 @@ namespace Thalmic.Myo
         public int[] emgData = new int[7];
 
         public List<float>[] dataMyo = new List<float>[8];
-        
+
+        public static int N = 140;
+
 
         internal Hub Hub
         {
@@ -217,13 +219,15 @@ namespace Thalmic.Myo
 				libmyo.event_get_emg(evt, 6),
 				libmyo.event_get_emg(evt, 7)
 			};
+            
             if (!writing)
             {
                 for(int i = 0;i<8;i++)
                 {
                     dataMyo[i].Add(emg[i]);
+                    //UnityEngine.Debug.Log(dataMyo[i].Count);
                 }
-                if (dataMyo[0].Count > 100)
+                if (dataMyo[0].Count > N)
                 {
                     for (int i = 0; i < 8; i++)
                     {
