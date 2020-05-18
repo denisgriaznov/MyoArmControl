@@ -16,11 +16,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateEditor
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -368,7 +365,7 @@ ScriptsOnlyBuild:
     className: TMP_Asset
   - hash:
       serializedVersion: 2
-      Hash: a442b1bfec6fb4866e2f902304e6c3ab
+      Hash: ed31d1663c650d83d756c6043640f9d0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Box
@@ -398,7 +395,7 @@ ScriptsOnlyBuild:
     className: CameraFollowSetup
   - hash:
       serializedVersion: 2
-      Hash: 2581629c1316d62c02b8c27ba7b30a1d
+      Hash: da69c8c6112d944ee6b72e762be2f398
     assemblyName: Assembly-CSharp.dll
     namespaceName: Thalmic.Myo
     className: ObjectDetection
@@ -410,7 +407,7 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
-      Hash: 19863e074fbd1b914ef0f49818bad652
+      Hash: 9363dc3131e6ae551aa3c871e18fe93c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Controller
@@ -578,7 +575,7 @@ ScriptsOnlyBuild:
     className: GraphVizualizer
   - hash:
       serializedVersion: 2
-      Hash: 1f997c2fb7eea288289d9dd1c50f3397
+      Hash: d0001a845b1fafb6567497a078c9aa4b
     assemblyName: Assembly-CSharp.dll
     namespaceName: Thalmic.Myo
     className: Calibrate

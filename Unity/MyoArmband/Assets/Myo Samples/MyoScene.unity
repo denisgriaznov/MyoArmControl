@@ -4932,8 +4932,8 @@ MonoBehaviour:
   modeManager: {fileID: 2130072282}
   countGreen: 0
   countRed: 0
-  greenText: {fileID: 0}
-  redText: {fileID: 0}
+  greenText: {fileID: 1024407025}
+  redText: {fileID: 1846583330}
 --- !u!4 &1228518392
 Transform:
   m_ObjectHideFlags: 0
