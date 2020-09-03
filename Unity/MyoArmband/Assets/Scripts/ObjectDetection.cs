@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -41,7 +41,6 @@ namespace Thalmic.Myo
         public int detectedPose = 0;
 
         public Image[] images;
-        // Use this for initialization
         IEnumerator Start() {
 
             #if UNITY_ANDROID
@@ -60,11 +59,6 @@ namespace Thalmic.Myo
             graph.Import(model.bytes);
             session = new TFSession(graph);
             Debug.Log("Graph Loaded!!!");
-
-            // Begin our heavy work on a new thread.
-            //_thread = new Thread(ThreadedWork);
-            //_thread.Start();
-            //do this to avoid warnings
             processingMyo = true;
             yield return new WaitForEndOfFrame();
             processingMyo = false;
@@ -155,9 +149,7 @@ namespace Thalmic.Myo
                 }
                    
             }
-            //flip bool so other thread will execute
             dataUpdated = true;
-            //Resources.UnloadUnusedAssets();
             processingMyo = false;
             yield return null;
         }
