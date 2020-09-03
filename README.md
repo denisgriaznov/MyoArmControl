@@ -28,7 +28,7 @@ Models were created for PC (tested in Unity) and for Arduino (Robot was created)
 
 #### Model for Arduino
 
-![Model for Arduino](Images/schemeheavymodern.png | width=120)
+![Model for Arduino](Images/schemeheavymodern.png)<!-- .element height="50%" width="50%" -->
 
 ## Fitting results
 
