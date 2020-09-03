@@ -15,7 +15,7 @@ Student work in Technical University of Liberec
 - [Data analysis](https://github.com/denisgriaznov/MyoArmControl/tree/master/Python/Fitting#data-analysis)
 - [Create and fitting model](https://github.com/denisgriaznov/MyoArmControl/tree/master/Python/Fitting#create-and-fitting-model)
 
-
+![Preview](Images/gif.gif)
 
 ## Requirements 
 Python: 3.6
