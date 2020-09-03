@@ -1,7 +1,10 @@
 # MyoArmControl
 Research of mechanical control via myoelectrical signals using Myo Armband. 
 
-Student work in Technical University of Liberec 
+Student work in Technical University of Liberec (TUL) under supervision of [Dr. Jan Koprnicky, PhD](https://www.fm.tul.cz/personal/jan.koprnicky).
+The work was described in the [master's thesis](Papers/thesis.pdf) and defended at TUL.
+
+New results were presented in the article for Student Conferense of Faculty of Mechatronics in TUL ([download here](Papers/skfm.pdf)).
 
 ## Targets
 
