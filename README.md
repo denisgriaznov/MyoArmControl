@@ -12,7 +12,7 @@ Student work in Technical University of Liberec
 
 ## Preview
 
-![Preview](Images/gif.gif | width=100)
+![Preview](Images/gif.gif | width=120)
 
 ## Requirements 
 Python: 3.6
