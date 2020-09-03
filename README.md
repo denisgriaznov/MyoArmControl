@@ -2,7 +2,7 @@
 Research of mechanical control via myoelectrical signals using Myo Armband. 
 
 Student work in Technical University of Liberec (TUL) under supervision of [Dr. Jan Koprnicky, PhD](https://www.fm.tul.cz/personal/jan.koprnicky).
-The work was described in the [master's thesis](Papers/thesis.pdf) and defended at TUL.
+The work was described in the master's thesisand defended at TUL ([download full text here](Papers/thesis.pdf)).
 
 New results were presented in the article for Student Conferense of Faculty of Mechatronics in TUL ([download here](Papers/skfm.pdf)).
 
@@ -23,7 +23,7 @@ Python: 3.6
 - keras==2.1.3
 
 Unity: 2019.2.10f
-- TensorFlow-Sharp ([Download here](https://s3.amazonaws.com/unity-ml-agents/0.5/TFSharpPlugin.unitypackage))
+- TensorFlow-Sharp ([download here](https://s3.amazonaws.com/unity-ml-agents/0.5/TFSharpPlugin.unitypackage))
 
 ## ML models
 
