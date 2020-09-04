@@ -25,13 +25,17 @@ Python: 3.6
 Unity: 2019.2.10f
 - TensorFlow-Sharp ([download here](https://s3.amazonaws.com/unity-ml-agents/0.5/TFSharpPlugin.unitypackage))
 
-## ML models
+## ML model
 
 Models were created for PC (tested in Unity) and for Arduino (Robot was created)
 
 #### Model for Arduino
 
 ![Model for Arduino](Images/schemeheavymodern.png)<!-- .element height="50%" width="50%" -->
+
+## Gestures
+
+![Gestures](Images/gestures.png)
 
 ## Fitting results
 
