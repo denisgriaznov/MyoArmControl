@@ -6,6 +6,8 @@ The work was described in the master's thesis and defended at TUL ([full text he
 
 New results were presented in the article for Student Conferense of Faculty of Mechatronics in TUL ([see here](Papers/skfm.pdf)).
 
+You can contact me through email: dengriaznov@gmail.com or [Telegram](https://t.me/denisgriaznov)
+
 ## Targets
 
 - find optimal EMG signal filtering method (in accuracy and computational cost)
