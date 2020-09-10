@@ -8,12 +8,12 @@ New results were presented in the article for Student Conferense of Faculty of M
 
 You can contact me through email: dengriaznov@gmail.com or [Telegram](https://t.me/denisgriaznov)
 
-## Targets
+## Achievements
 
-- find optimal EMG signal filtering method (in accuracy and computational cost)
-- create effective ML model for gesture recognition
-- move this model on remote device (such Arduino board) or  coumuter native program
-- exercise control
+- a dataset with 7000 samples for 7 different gestures was collected
+- effective ML model for gesture recognition was created (Python / TensorFlow / Keras)
+- ML model was moved to remote device and control via BLE implemented (Arduino / C)
+- a mini game was created to test the model on a PC (Unity3D / C#)
 
 ## Preview
 
